@@ -1,0 +1,38 @@
+
+aside.homepage{
+    width: 607px !important;
+    background: url("../images/old-g906797482_1280.jpg");
+    background-position: right;
+    background-size: cover;
+}
+@media (min-width: 1140px) {
+    main.first-step{
+        background: url("../images/bg-first-step.png");
+        background-position: top right;
+        background-size: 40%;
+        background-repeat: no-repeat;
+    }   
+}
+body{
+    background: linear-gradient(180deg, #004351 51.04%, #1D1C3A 100%);
+}
+a{
+    text-decoration: none;
+    color: #F5F5F5;
+    cursor: pointer;
+}
+a:hover, a:focus{
+    color: #51BCC5;
+}
+button{
+    border: none;
+    background-color: #004351;
+}
+div.buttons{
+    border: none;
+    text-align: center;
+    background-color: #51BCC5;
+}
+.form-check-input:checked{
+    background-color: #51BCC5;
+}
