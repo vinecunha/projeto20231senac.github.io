@@ -1,51 +1,19 @@
-// carrega o arquivo PDF
-const url = 'arquivo.pdf';
-const loadingTask = pdfjsLib.getDocument(url);
+/*VARIÁVEIS
+Na página extract.html
+TABLE: pdf-data -> local onde serão exibidas as contribuições extraídas do extrato CNIS
 
-// processa o arquivo PDF e extrai os dados
-loadingTask.promise.then(function(pdf) {
-  const pageNumber = 1;
-  return pdf.getPage(pageNumber);
-}).then(function(page) {
-  const scale = 1.5;
-  const viewport = page.getViewport({ scale: scale });
+Na página preview.html
+currentYear -> define o ano que estamos atualmente.
+currentAge -> exibe a idade informada na página first-step pelo usuário
+selectedYear -> exibe a idade informada pelo usuário na própria página preview.html como a idade que gostaria de se aposentar
+calculatedYear -> calculatedYear = currentYear + (selectedYear - currentAge)  -> a formula define que ano será quando o usuário tiver a idade informada.  
 
-  // cria um elemento de canvas para renderizar a página
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  canvas.height = viewport.height;
-  canvas.width = viewport.width;
-  document.body.appendChild(canvas);
+Na página result.html
+currentAge -> exibe a idade informada na página first-step pelo usuário
+gender -> exibe o gênero informado na página first-step pelo usuário
+calculatedCNIS -> exibe o tempo de contribuição de acordo com o extrato CNIS anexado pelo usuário na página first-step
+averageINSS -> exibe a média salarial de contribuição de acordo com o extrato CNIS anexado pelo usuário na página first-step 
+salary -> exibe o resultado do cálculo principal
+calculatedYear -> calculatedYear = currentYear + (selectedYear - currentAge)  -> a formula define que ano será quando o usuário tiver a idade informada.  
 
-  // renderiza a página em um elemento de canvas
-  const renderContext = {
-    canvasContext: context,
-    viewport: viewport
-  };
-  page.render(renderContext).promise.then(function() {
-    // extrai o texto da página e cria as linhas da tabela
-    const textContent = page.getTextContent();
-    const items = textContent.items;
-    const rows = [];
-    let row = '';
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i];
-      if (item.str == '\n') {
-        rows.push(row);
-        row = '';
-      } else {
-        row += item.str;
-      }
-    }
-
-    // adiciona as linhas à tabela
-    const table = document.getElementById('pdf-data');
-    for (let i = 0; i < rows.length; i++) {
-      const tr = document.createElement('tr');
-      const td = document.createElement('td');
-      td.textContent = rows[i];
-      tr.appendChild(td);
-      table.appendChild(tr);
-    }
-  });
-});
+*/

@@ -6,12 +6,18 @@ aside.homepage{
     background-size: cover;
 }
 @media (min-width: 1140px) {
-    main.first-step{
+    .first-step{
         background: url("../images/bg-first-step.png");
         background-position: top right;
         background-size: 40%;
         background-repeat: no-repeat;
     }   
+    .result{
+        background: url("../images/bg-result.png");
+        background-position: top right;
+        background-size: 55%;
+        background-repeat: no-repeat;
+    }
 }
 body{
     background: linear-gradient(180deg, #004351 51.04%, #1D1C3A 100%);
@@ -21,8 +27,11 @@ a{
     color: #F5F5F5;
     cursor: pointer;
 }
-a:hover, a:focus{
+a:hover:not(.restart), a:focus:not(.restart){
     color: #51BCC5;
+}
+a.restart:hover, a.restart:focus{
+    color: #dfdfdf;
 }
 button{
     border: none;
