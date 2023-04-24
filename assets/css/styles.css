@@ -15,13 +15,13 @@ aside.homepage{
     .first-step{
         background: url("../images/bg-first-step.png");
         background-position: top right;
-        background-size: 40%;
+        background-size: 35%;
         background-repeat: no-repeat;
     }   
     .result{
         background: url("../images/bg-result.png");
         background-position: top right;
-        background-size: 50%;
+        background-size: 45%;
         background-repeat: no-repeat;
     }
 }
@@ -48,7 +48,7 @@ div.buttons{
     text-align: center;
     background-color: #51BCC5;
 }
-input{
+.input-group-idade input{
     max-width: 150px;
 }
 .form-check-input:checked{
