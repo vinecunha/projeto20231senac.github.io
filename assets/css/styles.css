@@ -1,26 +1,9 @@
 @media (max-width: 1139px){
     main.homepage {
-        background: url("../images/old-g906797482_1280.jpg");
+        background: url("../images/old-g906797482_1280-sm.jpg");
         background-position: right;
         background-size: cover;
-        position: relative; /* Adicione a propriedade position com o valor relative para permitir o posicionamento absoluto do elemento filho */
-      }
-      
-      main.homepage::before {
-        content: ""; /* Adicione um elemento pseudo ::before para cobrir a imagem de fundo */
-        background-color: rgba(0, 0, 0, 0.5); /* Defina a cor de fundo do elemento ::before com um valor RGBA que define a transparência em 50% */
-        position: absolute; /* Posicione o elemento ::before de forma absoluta em relação à div pai */
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      }
-      
-      /* Defina a opacidade da imagem de fundo para 100% (totalmente opaco) */
-      main.homepage {
-        opacity: 1;
-      }
-      
+    }
 }
 aside.homepage{
     width: 607px !important;
@@ -38,7 +21,7 @@ aside.homepage{
     .result{
         background: url("../images/bg-result.png");
         background-position: top right;
-        background-size: 55%;
+        background-size: 50%;
         background-repeat: no-repeat;
     }
 }
@@ -64,6 +47,9 @@ div.buttons{
     border: none;
     text-align: center;
     background-color: #51BCC5;
+}
+input{
+    max-width: 150px;
 }
 .form-check-input:checked{
     background-color: #51BCC5;
