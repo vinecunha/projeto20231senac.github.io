@@ -4,7 +4,7 @@ Projeto Integrador para desenvolvimento de uma aplicação para cálculo de apos
 
 ## Por que está sendo desenvolvido?
 
- Este projeto está sendo desenvolvido como pré-requisito para obtenção do grau de ensino superior da instituição SENAC. Esta é a segunda entrega da disciplina de PROJETO INTEGRADOR do 4º do curso de Graduação Tecnológica em Sistemas para Internet.
+ Este projeto está sendo desenvolvido como pré-requisito para obtenção do grau de ensino superior da instituição SENAC. Esta é a segunda entrega da disciplina de PROJETO INTEGRADOR do 4º período do curso de Graduação Tecnológica em Sistemas para Internet.
 
     Tecnologias utilizadas: HTML5, CSS3, biblioteca PDF-JS e Bootstrap 5. 
     
