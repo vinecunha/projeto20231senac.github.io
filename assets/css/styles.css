@@ -4,19 +4,38 @@
         background-position: right;
         background-size: cover;
     }
+   
+  
+   
 }
+@media (max-width:900px) { 
+    .logo{
+        height:70px !important ;
+       
+    }
+    header picture {
+        display: flex;
+        justify-content: center;
+    }
+    
+ }
+ .logo{
+    height: 120px;
+ }
 aside.homepage{
     width: 607px !important;
     background: url("../images/old-g906797482_1280.jpg");
     background-position: right;
     background-size: cover;
 }
+
 @media (min-width: 1140px) {
     .first-step{
         background: url("../images/bg-first-step.png");
         background-position: top right;
         background-size: 35%;
         background-repeat: no-repeat;
+       
     }   
     .result{
         background: url("../images/bg-result.png");
@@ -27,6 +46,12 @@ aside.homepage{
 }
 body{
     background: linear-gradient(180deg, #004351 51.04%, #1D1C3A 100%);
+}
+
+
+.hover:hover{
+    background-color: #51BCC5;
+    color: #F5F5F5;
 }
 a{
     text-decoration: none;
@@ -42,6 +67,7 @@ a.restart:hover, a.restart:focus{
 button{
     border: none;
     background-color: #004351;
+    color: #dfdfdf;
 }
 div.buttons{
     border: none;
