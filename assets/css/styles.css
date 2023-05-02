@@ -28,28 +28,36 @@ aside.homepage{
 body{
     background: linear-gradient(180deg, #004351 51.04%, #1D1C3A 100%);
 }
-a{
+a, div.buttons{
     text-decoration: none;
     color: #F5F5F5;
     cursor: pointer;
 }
-a:hover:not(.restart), a:focus:not(.restart){
+a:hover:not(.restart), a:focus:not(.restart), button:hover, input.submit:hover{
     color: #51BCC5;
 }
 a.restart:hover, a.restart:focus{
     color: #dfdfdf;
 }
-button{
+a button{
+    color: #F5F5F5;
     border: none;
     background-color: #004351;
 }
-div.buttons{
+input{
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+div.buttons svg{
     border: none;
     text-align: center;
     background-color: #51BCC5;
 }
-.input-group-idade input{
-    max-width: 150px;
+div.buttons input{
+    background-color: transparent;
+    border: none;
+    color: #F5F5F5;
 }
 .form-check-input:checked{
     background-color: #51BCC5;

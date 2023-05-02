@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href=".assets/favicon/site.webmanifest">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <!-- importing bootstrap -->
     <link type="text/css" rel="stylesheet" href="./assets/css/styles.css" media="screen"/>
     <title>CalcPrev - Sua calculadora de Aposentadoria</title>
@@ -29,30 +29,28 @@
                 </div>
             </section>  
             <section>
-                <p style="font-family: 'Fira Sans', sans-serif; color: #f5f5f5; font-size: 1.5rem;">Estamos em <span id="currentYear"></span>. <br/> Você tem atualmente <span id="currentAge"></span>. Com <span id="selectedYear"></span> a previsão <br/> da sua aponsetadoria é no ano de <span id="calculatedYear"></span>.</p>
+                <p style="font-family: 'Fira Sans', sans-serif; color: #f5f5f5; font-size: 1.5rem;" class="my-5">Estamos em <span id="currentYear"></span>. Você tem atualmente <span id="currentAge"></span>. Com <span id="selectedYear"></span> anos a previsão da sua aponsetadoria é no ano de <span id="calculatedYear"></span>.</p>
             </section>
         </main>   
         <footer class="container-fluid mb-5 d-flex justify-content-between text-white">
             <a href="first-step.html" class="d-flex flex-row justify-content-between align-items-center">
-                <div class="buttons py-2 px-3 m-1 rounded-3">
-                    <svg width="25" height="55" viewBox="0 0 25 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="buttons m-1 rounded-3">
+                    <svg width="35" height="55" viewBox="0 0 25 55" class="p-2" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22.2147 52.39L4.59438 32.0603C2.51346 29.6594 2.51346 25.7307 4.59438 23.3298L22.2147 3" stroke="#F5F5F5" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                        
+                    </svg>
                 </div>
                 <span class="fw-bold fs-5">Voltar</span>                    
             </a>
-            <a href="result.html" class="d-flex flex-row justify-content-between align-items-center">
-                <span class="fw-bold fs-5">Avançar</span> 
-                <div class="buttons py-2 px-3 m-1 rounded-3">
-                    <svg width="25" height="55" viewBox="0 0 25 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3.03394 52.3937L20.6542 32.0626C22.7352 29.6615 22.7352 25.7324 20.6542 23.3314L3.03394 3.00012" stroke="#F5F5F5" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                    
-                </div>
-            </a>
-        </footer>    
+            <div class="buttons m-1 rounded-3 d-flex flex-row align-items-center">
+                <input type="submit" value="Avançar" class="submit fw-bold fs-5" />
+                <svg width="35" height="55" viewBox="0 0 25 55" class="p-2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.03394 52.3937L20.6542 32.0626C22.7352 29.6615 22.7352 25.7324 20.6542 23.3314L3.03394 3.00012" stroke="#F5F5F5" stroke-width="5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                    
+            </div>
+        </footer>   
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/scriptPreview.js"></script>
 </body>
 </html>
