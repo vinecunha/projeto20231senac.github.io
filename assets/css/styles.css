@@ -28,29 +28,72 @@ aside.homepage{
 body{
     background: linear-gradient(180deg, #004351 51.04%, #1D1C3A 100%);
 }
-a{
+a, div.buttons{
     text-decoration: none;
     color: #F5F5F5;
     cursor: pointer;
 }
-a:hover:not(.restart), a:focus:not(.restart){
+a:hover:not(.restart), a:focus:not(.restart), button:hover, input.submit:hover{
     color: #51BCC5;
 }
 a.restart:hover, a.restart:focus{
     color: #dfdfdf;
 }
-button{
+a button{
+    color: #F5F5F5;
     border: none;
     background-color: #004351;
 }
-div.buttons{
+input{
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+div.buttons svg{
     border: none;
     text-align: center;
     background-color: #51BCC5;
 }
-.input-group-idade input{
-    max-width: 150px;
+div.buttons input{
+    background-color: transparent;
+    border: none;
+    color: #F5F5F5;
 }
 .form-check-input:checked{
     background-color: #51BCC5;
 }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .pagination li {
+    margin: 0 .1rem;
+  }
+  
+  .pagination li a {
+    color: #004351;
+    display: block;
+    padding: .5rem 1rem;
+    border: 1px solid #004351;
+  }
+  
+  .pagination li a:hover {
+    background-color: #ddd;
+  }
+  
+  .pagination li.active a {
+    background-color: #51BCC5;
+    color: #fff;
+    border-color: #51BCC5;
+  }
+  
