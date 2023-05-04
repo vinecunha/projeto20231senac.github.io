@@ -52,15 +52,12 @@ for (const radio of radios) {
   radio.addEventListener('change', (event) => {
     // Obtenha o valor do radio selecionado
     const valor = event.target.value;
-    console.log(valor)
     // Salve o valor em localstorage
     localStorage.setItem('gender', valor);
-    var generoLocal = localStorage.getItem("gender");
-    console.log(generoLocal)
   });
 }
 
-
+//funcao para carregar o JSON anexado e exibir na tabela
 const fileInput = document.getElementById('formFileLg');
 const consoleButton = document.getElementById('carregarJSON');
 

@@ -1,8 +1,9 @@
-const remuneracoes = JSON.parse(localStorage.getItem('json'));
-console.log(remuneracoes);
+const remuneracoes = JSON.parse(localStorage.getItem('json')); //recupera do localstorage o JSON definido na scriptFirstStep
 
+//cria a tabela
 let table = document.getElementById("tableContainer");
 
+//cria o cabeçalho
 let headerRow = table.createTHead().insertRow();
 let competenciaHeader = headerRow.insertCell(0);
 let remuneracaoHeader = headerRow.insertCell(1);
@@ -35,6 +36,7 @@ if (Array.isArray(remuneracoes)) {
   }
   updateTable(currentPage);
 
+  //cria o footer paginador da tabela
   let paginationContainer = document.getElementById("paginationContainer");
   let paginationList = document.createElement("ul");
   paginationList.classList.add("pagination");
@@ -61,6 +63,6 @@ if (Array.isArray(remuneracoes)) {
   }
 
   paginationContainer.appendChild(paginationList);
-} else {
+} else { //se houver algum erro com o JSON informado
   console.error('O objeto armazenado em local storage não é um array.');
 }

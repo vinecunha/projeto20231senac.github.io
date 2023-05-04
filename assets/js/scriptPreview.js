@@ -2,6 +2,7 @@ const anoAtual = new Date().getFullYear(); //pega o ano atual
 var idade = localStorage.getItem("idade"); //pega o localstorage da idade
 var selectedYear = document.getElementById("selectedYear");
 
+//funcao para selecionar e atualizar a idade que gostaria de se aposentar
 function controleDeIdadeAposentadoria() {
     var inputIdadeAposentadoria = document.getElementById("idadeAposentadoria");
     localStorage.setItem("idadeAposentadoria", inputIdadeAposentadoria.value); //define a idade do value do input no localstorage
