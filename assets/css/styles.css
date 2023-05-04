@@ -21,7 +21,7 @@ aside.homepage{
     .result{
         background: url("../images/bg-result.png");
         background-position: top right;
-        background-size: 45%;
+        background-size: 42%;
         background-repeat: no-repeat;
     }
 }
@@ -49,7 +49,7 @@ input{
     outline: none;
     user-select: none;
 }
-div.buttons svg{
+div.buttons svg, .restart{
     border: none;
     text-align: center;
     background-color: #51BCC5;
