@@ -4,79 +4,96 @@
         background-position: right;
         background-size: cover;
     }
-   
-  
-   
 }
-@media (max-width:900px) { 
-    .logo{
-        height:70px !important ;
-       
-    }
-    header picture {
-        display: flex;
-        justify-content: center;
-    }
-    
- }
- .logo{
-    height: 120px;
- }
 aside.homepage{
     width: 607px !important;
     background: url("../images/old-g906797482_1280.jpg");
     background-position: right;
     background-size: cover;
 }
-
 @media (min-width: 1140px) {
     .first-step{
         background: url("../images/bg-first-step.png");
         background-position: top right;
         background-size: 35%;
         background-repeat: no-repeat;
-       
     }   
     .result{
         background: url("../images/bg-result.png");
         background-position: top right;
-        background-size: 45%;
+        background-size: 42%;
         background-repeat: no-repeat;
     }
 }
 body{
     background: linear-gradient(180deg, #004351 51.04%, #1D1C3A 100%);
 }
-
-
-.hover:hover{
-    background-color: #51BCC5;
-    color: #F5F5F5;
-}
-a{
+a, div.buttons{
     text-decoration: none;
     color: #F5F5F5;
     cursor: pointer;
 }
-a:hover:not(.restart), a:focus:not(.restart){
+a:hover:not(.restart), a:focus:not(.restart), button:hover, input.submit:hover{
     color: #51BCC5;
 }
 a.restart:hover, a.restart:focus{
     color: #dfdfdf;
 }
-button{
+a button{
+    color: #F5F5F5;
     border: none;
     background-color: #004351;
-    color: #dfdfdf;
 }
-div.buttons{
+input{
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+div.buttons svg, .restart{
     border: none;
     text-align: center;
     background-color: #51BCC5;
 }
-.input-group-idade input{
-    max-width: 150px;
+div.buttons input{
+    background-color: transparent;
+    border: none;
+    color: #F5F5F5;
 }
 .form-check-input:checked{
     background-color: #51BCC5;
 }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .pagination li {
+    margin: 0 .1rem;
+  }
+  
+  .pagination li a {
+    color: #004351;
+    display: block;
+    padding: .5rem 1rem;
+    border: 1px solid #004351;
+  }
+  
+  .pagination li a:hover {
+    background-color: #ddd;
+  }
+  
+  .pagination li.active a {
+    background-color: #51BCC5;
+    color: #fff;
+    border-color: #51BCC5;
+  }
+  
