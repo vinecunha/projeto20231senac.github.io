@@ -9,6 +9,9 @@ let competenciaHeader = headerRow.insertCell(0);
 let remuneracaoHeader = headerRow.insertCell(1);
 competenciaHeader.innerHTML = "Competência";
 remuneracaoHeader.innerHTML = "Remuneração";
+competenciaHeader.style.fontWeight = "bold";
+remuneracaoHeader.style.fontWeight = "bold";
+headerRow.style.borderBottom = "2px solid #000";
 
 // Cria o corpo da tabela apenas uma vez
 let tbody = table.createTBody();
@@ -30,8 +33,9 @@ if (Array.isArray(remuneracoes)) {
       let row = tbody.insertRow();
       let competenciaCell = row.insertCell(0);
       let remuneracaoCell = row.insertCell(1);
-      competenciaCell.innerHTML = item.competencia;
-      remuneracaoCell.innerHTML = item.remuneracao;
+      competenciaCell.innerText = item.competencia;
+      remuneracaoCell.innerText = `R$ ${item.remuneracao}`;
+      competenciaCell.style.borderRight = "2px solid #000";
     });
   }
   updateTable(currentPage);
