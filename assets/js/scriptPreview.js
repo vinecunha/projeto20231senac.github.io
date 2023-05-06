@@ -46,7 +46,7 @@ controleDeIdadeAposentadoria()
 document.addEventListener("DOMContentLoaded", function() {
     if (idade) {
       var currentAge = document.getElementById("currentAge");
-      currentAge.innerText = idade; //valida se tem idade no localstorage e exibe na span correspondente
+      currentAge.innerText = `${idade} anos`; //valida se tem idade no localstorage e exibe na span correspondente
     }
 });
 
