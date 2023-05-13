@@ -1,9 +1,9 @@
-const remuneracoes = JSON.parse(localStorage.getItem('json')); //recupera do localstorage o JSON definido na scriptFirstStep
+const remuneracoes = JSON.parse(localStorage.getItem('json')); // Recupera do localStorage o JSON definido em scriptFirstStep
 
-//cria a tabela
+// Cria a tabela
 let table = document.getElementById("tableContainer");
 
-//cria o cabeçalho
+// Cria o cabeçalho
 let headerRow = table.createTHead().insertRow();
 let competenciaHeader = headerRow.insertCell(0);
 let remuneracaoHeader = headerRow.insertCell(1);
@@ -20,6 +20,7 @@ if (Array.isArray(remuneracoes)) {
   const itemsPerPage = 10;
   let currentPage = 1;
   const totalPages = Math.ceil(remuneracoes.length / itemsPerPage);
+  const visiblePages = 5;
 
   function updateTable(page) {
     const startIndex = (page - 1) * itemsPerPage;
@@ -36,37 +37,122 @@ if (Array.isArray(remuneracoes)) {
       competenciaCell.innerText = item.competencia;
       remuneracaoCell.innerText = `R$ ${item.remuneracao}`;
       competenciaCell.style.borderRight = "2px solid #000";
+
+      // Definir largura e estilo de alinhamento para as células
+      competenciaCell.style.width = "50%";
+      competenciaCell.style.textAlign = "center";
+      remuneracaoCell.style.width = "50%";
+      remuneracaoCell.style.textAlign = "center";
     });
   }
   updateTable(currentPage);
 
-  //cria o footer paginador da tabela
+  // Cria o footer paginador da tabela
   let paginationContainer = document.getElementById("paginationContainer");
   let paginationList = document.createElement("ul");
   paginationList.classList.add("pagination");
 
-  for (let i = 1; i <= totalPages; i++) {
-    let paginationItem = document.createElement("li");
-    let paginationLink = document.createElement("a");
-    paginationLink.href = "#";
-    paginationLink.innerHTML = i;
-    if (i === currentPage) {
-      paginationItem.classList.add("active");
-    }
-    paginationItem.appendChild(paginationLink);
-    paginationList.appendChild(paginationItem);
+  function renderPagination() {
+    paginationList.innerHTML = ""; // Limpa os botões anteriores
 
-    paginationLink.addEventListener("click", function (event) {
-      event.preventDefault();
-      currentPage = i;
-      updateTable(currentPage);
-      let activeItem = paginationList.querySelector(".active");
-      activeItem.classList.remove("active");
-      paginationItem.classList.add("active");
-    });
+    let startPage = currentPage - Math.floor(visiblePages / 2);
+    startPage = Math.max(startPage, 1);
+    let endPage = startPage + visiblePages - 1;
+    endPage = Math.min(endPage, totalPages);
+
+    // Botão para a primeira página
+    if (currentPage > 1) {
+      let firstItem = document.createElement("li");
+      let firstLink = document.createElement("a");
+      firstLink.href = "#";
+      firstLink.innerHTML = "&laquo;&laquo;"; // Símbolo para primeira página
+      firstItem.appendChild(firstLink);
+      paginationList.appendChild(firstItem);
+
+      firstLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        currentPage = 1;
+        updateTable(currentPage);
+        renderPagination();
+      });
+    }
+
+    // Botão para a página anterior
+    if (currentPage > 1) {
+      let prevItem = document.createElement("li");
+      let prevLink = document.createElement("a");
+      prevLink.href = "#";
+      prevLink.innerHTML = "&laquo;"; // Símbolo para página anterior
+      prevItem.appendChild(prevLink);
+      paginationList.appendChild(prevItem);
+
+      prevLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        currentPage--;
+        updateTable(currentPage);
+        renderPagination();
+      });
+    }
+
+    // Botões para as páginas
+    for (let i = startPage; i <= endPage; i++) {
+      let paginationItem = document.createElement("li");
+      let paginationLink = document.createElement("a");
+      paginationLink.href = "#";
+      paginationLink.innerHTML = i;
+      if (i === currentPage) {
+        paginationItem.classList.add("active");
+      }
+      paginationItem.appendChild(paginationLink);
+      paginationList.appendChild(paginationItem);
+
+      paginationLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        currentPage = i;
+        updateTable(currentPage);
+        renderPagination();
+      });
+    }
+
+    // Botão para a próxima página
+    if (currentPage < totalPages) {
+      let nextItem = document.createElement("li");
+      let nextLink = document.createElement("a");
+      nextLink.href = "#";
+      nextLink.innerHTML = "&raquo;"; // Símbolo para próxima página
+      nextItem.appendChild(nextLink);
+      paginationList.appendChild(nextItem);
+
+      nextLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        currentPage++;
+        updateTable(currentPage);
+        renderPagination();
+      });
+    }
+
+    // Botão para a última página
+    if (currentPage < totalPages) {
+      let lastItem = document.createElement("li");
+      let lastLink = document.createElement("a");
+      lastLink.href = "#";
+      lastLink.innerHTML = "&raquo;&raquo;"; // Símbolo para última página
+      lastItem.appendChild(lastLink);
+      paginationList.appendChild(lastItem);
+
+      lastLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        currentPage = totalPages;
+        updateTable(currentPage);
+        renderPagination();
+      });
+    }
+
+    paginationContainer.innerHTML = ""; // Limpa o conteúdo anterior
+    paginationContainer.appendChild(paginationList);
   }
 
-  paginationContainer.appendChild(paginationList);
-} else { //se houver algum erro com o JSON informado
-  console.error('O objeto armazenado em local storage não é um array.');
+  renderPagination();
+} else { // Se houver algum erro com o JSON informado
+  console.error('O objeto armazenado em localStorage não é um array.');
 }
