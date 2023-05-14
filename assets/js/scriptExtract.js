@@ -27,7 +27,7 @@ if (Array.isArray(remuneracoes)) {
   });
 
   function calculateVisiblePages() {
-    return window.innerWidth < 768 ? 1 : window.innerWidth < 1140 ? 3 : 5;
+    return window.innerWidth < 768 ? 2 : window.innerWidth < 1140 ? 3 : 5;
   }
 
   function updateTable(page) {
@@ -56,8 +56,8 @@ if (Array.isArray(remuneracoes)) {
   updateTable(currentPage);
 
   // Cria o footer paginador da tabela
-  let paginationContainer = document.getElementById("paginationContainer");
-  let paginationRow = paginationContainer.insertRow();
+  let tfoot = table.createTFoot();
+  let paginationRow = tfoot.insertRow();
   let paginationCell = paginationRow.insertCell();
   paginationCell.colSpan = 2;
   paginationCell.style.textAlign = "center";
@@ -128,6 +128,12 @@ if (Array.isArray(remuneracoes)) {
       });
     }
 
+    // Adicionar a mensagem "de X páginas"
+    let pagesMessage = document.createElement("span");
+    pagesMessage.innerText = `de ${totalPages}`;
+    paginationList.appendChild(pagesMessage);
+
+
     // Botão para a próxima página
     if (currentPage < totalPages) {
       let nextItem = document.createElement("li");
@@ -167,7 +173,9 @@ if (Array.isArray(remuneracoes)) {
   }
 
   renderPagination();
+
 } else { // Se houver algum erro com o JSON informado
   alert('O objeto anexado não é um array no formato correto. Refaça o upload, por gentileza.')
   console.error('O objeto armazenado em localStorage não é um array.');
+  window.location.href = 'first-step.html'; // Redireciona para a página first-step.html
 }

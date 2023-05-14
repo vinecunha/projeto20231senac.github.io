@@ -104,3 +104,9 @@ div.buttons input{
     border-color: #51BCC5;
   }
   
+  .pagination span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 .2rem;
+  }
