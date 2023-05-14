@@ -20,7 +20,15 @@ if (Array.isArray(remuneracoes)) {
   const itemsPerPage = 10;
   let currentPage = 1;
   const totalPages = Math.ceil(remuneracoes.length / itemsPerPage);
-  const visiblePages = 5;
+  let visiblePages = calculateVisiblePages(); // Define o número de páginas visíveis inicialmente
+  window.addEventListener('resize', function() {
+    visiblePages = calculateVisiblePages(); // Recalcula o número de páginas visíveis ao redimensionar a janela
+    renderPagination(); // Atualiza a renderização da paginação com o novo número de páginas visíveis
+  });
+
+  function calculateVisiblePages() {
+    return window.innerWidth < 768 ? 1 : window.innerWidth < 1140 ? 3 : 5;
+  }
 
   function updateTable(page) {
     const startIndex = (page - 1) * itemsPerPage;
@@ -39,9 +47,9 @@ if (Array.isArray(remuneracoes)) {
       competenciaCell.style.borderRight = "2px solid #000";
 
       // Definir largura e estilo de alinhamento para as células
-      competenciaCell.style.width = "50%";
+      competenciaCell.style.maxWidth = "50%";
       competenciaCell.style.textAlign = "center";
-      remuneracaoCell.style.width = "50%";
+      remuneracaoCell.style.maxWidth = "50%";
       remuneracaoCell.style.textAlign = "center";
     });
   }
@@ -49,8 +57,14 @@ if (Array.isArray(remuneracoes)) {
 
   // Cria o footer paginador da tabela
   let paginationContainer = document.getElementById("paginationContainer");
+  let paginationRow = paginationContainer.insertRow();
+  let paginationCell = paginationRow.insertCell();
+  paginationCell.colSpan = 2;
+  paginationCell.style.textAlign = "center";
+
   let paginationList = document.createElement("ul");
   paginationList.classList.add("pagination");
+  paginationList.style.width = "100%";
 
   function renderPagination() {
     paginationList.innerHTML = ""; // Limpa os botões anteriores
@@ -147,12 +161,13 @@ if (Array.isArray(remuneracoes)) {
         renderPagination();
       });
     }
-
-    paginationContainer.innerHTML = ""; // Limpa o conteúdo anterior
-    paginationContainer.appendChild(paginationList);
+    
+    paginationCell.innerHTML = ""; // Limpa o conteúdo anterior
+    paginationCell.appendChild(paginationList);
   }
 
   renderPagination();
 } else { // Se houver algum erro com o JSON informado
+  alert('O objeto anexado não é um array no formato correto. Refaça o upload, por gentileza.')
   console.error('O objeto armazenado em localStorage não é um array.');
 }
